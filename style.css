@@ -60,6 +60,18 @@ h2 {
   color: #fff;
   transform: translateY(-5px);
 }
+.project-card:hover .project-info {
+  color: #fff;
+}
+
+.project-card:hover .project-info h3 {
+  color: #80ffaa;
+}
+
+.project-card:hover .project-info a {
+  color: #80ffaa;
+}
+
 
 .project-card:hover a {
   color: #80ffaa;
