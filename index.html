@@ -3,37 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sam Bradley | Portfolio</title>
+  <title>Sam Bradley | Data Scientist</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
+  <header class="fade-in">
     <h1>Sam Bradley</h1>
-    <p>Web Developer | Designer | Engineer</p>
+    <p>Data Scientist | ML Enthusiast | Problem Solver</p>
   </header>
 
-  <section class="about">
+  <section class="about fade-in-up">
     <h2>About Me</h2>
     <p>
-      I'm a web developer with a passion for building clean, user-friendly web applications.
-      I specialize in HTML, CSS, JavaScript, and front-end frameworks like React.
+      I'm a data science enthusiast with a focus on machine learning and data visualization.
+      I enjoy turning complex datasets into actionable insights. Currently building my portfolio—stay tuned!
     </p>
   </section>
 
-  <section class="projects">
+  <section class="projects fade-in-up">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>My Portfolio Site</h3>
-      <p>A responsive personal website to showcase my work and skills.</p>
-      <a href="https://github.com/SamBradley2024/project-repo" target="_blank">View on GitHub</a>
+    <div class="project-card">
+      <img src="assets/sample-thumbnail.png" alt="Project thumbnail" />
+      <div class="project-info">
+        <h3>ML Project Title</h3>
+        <p>A brief description of your machine learning or data science project.</p>
+        <a href="https://github.com/SamBradley2024/project-repo" target="_blank">View on GitHub</a>
+      </div>
     </div>
+    <!-- Add more .project-card elements as needed -->
   </section>
 
-  <footer>
+  <footer class="fade-in-up">
     <p>Connect with me:</p>
     <a href="https://www.linkedin.com/in/yourprofile/" target="_blank">LinkedIn</a> |
     <a href="mailto:sambradleystudent@gmail.com">Email</a>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
