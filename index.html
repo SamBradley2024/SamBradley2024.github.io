@@ -6,6 +6,124 @@
   <title>Sam Bradley | Data Scientist Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      justify-content: center;
+    }
+    .tab-button {
+      background: none;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      color: #006644;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .tab-button:hover {
+      color: #00994d;
+    }
+    .tab-button.active {
+      color: #007a3d;
+      border-bottom-color: #007a3d;
+    }
+    .tab-content {
+      display: none;
+      max-width: 900px;
+      margin: auto;
+      padding: 1rem;
+      background: #f9fff9;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Project Cards */
+    .project-card {
+      width: 320px;
+      height: 180px;
+      perspective: 1000px;
+      margin: 1rem auto;
+      cursor: pointer;
+    }
+    .project-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .project-card.flipped .project-inner {
+      transform: rotateY(180deg);
+    }
+    .project-front,
+    .project-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      color: #222;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .project-front img {
+      width: 120px;
+      height: 100%;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-bottom-left-radius: 12px;
+      flex-shrink: 0;
+    }
+    .project-info {
+      padding: 1rem;
+      flex: 1;
+    }
+    .project-front h3 {
+      margin-top: 0;
+      color: #00994d;
+    }
+    .project-front a {
+      text-decoration: none;
+      color: #007a3d;
+      font-weight: bold;
+    }
+    .project-front a:hover {
+      text-decoration: underline;
+    }
+    /* Back side styling */
+    .project-back {
+      background-color: #003322;
+      color: #fff;
+      transform: rotateY(180deg);
+      padding: 1rem;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-back h3 {
+      margin-top: 0;
+      color: #80ffaa;
+    }
+    .project-back a {
+      color: #80ffaa;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .project-back a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <header class="fade-in">
@@ -76,66 +194,74 @@
     <h2>Projects</h2>
 
     <div class="project-card">
-      <div class="project-front">
-        <img src="assets/dodgetrack-thumbnail.png" alt="DodgeTrack App" />
-        <div class="project-info">
-          <h3>DodgeTrack</h3>
+      <div class="project-inner">
+        <div class="project-front">
+          <img src="assets/dodgetrack-thumbnail.png" alt="DodgeTrack App" />
+          <div class="project-info">
+            <h3>DodgeTrack</h3>
+          </div>
         </div>
-      </div>
-      <div class="project-back">
-        <p>
-          Designed and built a dodgeball timing and stats tracking mobile app using Visual Studio, .NET MAUI, C#, and XAML.
-          Currently testing with user feedback to improve features.
-        </p>
-        <a href="https://github.com/SamBradley2024/DodgeTrack" target="_blank">View on GitHub</a>
+        <div class="project-back">
+          <p>
+            Designed and built a dodgeball timing and stats tracking mobile app using Visual Studio, .NET MAUI, C#, and XAML.
+            Currently testing with user feedback to improve features.
+          </p>
+          <a href="https://github.com/SamBradley2024/DodgeTrack" target="_blank">View on GitHub</a>
+        </div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-front">
-        <img src="assets/peakdistrictprose-thumbnail.png" alt="Peak District Prose" />
-        <div class="project-info">
-          <h3>Peak District Prose</h3>
+      <div class="project-inner">
+        <div class="project-front">
+          <img src="assets/peakdistrictprose-thumbnail.png" alt="Peak District Prose" />
+          <div class="project-info">
+            <h3>Peak District Prose</h3>
+          </div>
         </div>
-      </div>
-      <div class="project-back">
-        <p>
-          Developed a monetizable writing platform with moderation features in a 6-person Agile team.<br />
-          Tools: Sinatra, SQLite3, Ruby, Git.
-        </p>
-        <a href="https://github.com/SamBradley2024/PeakDistrictProse" target="_blank">View on GitHub</a>
+        <div class="project-back">
+          <p>
+            Developed a monetizable writing platform with moderation features in a 6-person Agile team.<br />
+            Tools: Sinatra, SQLite3, Ruby, Git.
+          </p>
+          <a href="https://github.com/SamBradley2024/PeakDistrictProse" target="_blank">View on GitHub</a>
+        </div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-front">
-        <img src="assets/engineeringyourehired-thumbnail.png" alt="Engineering You’re Hired" />
-        <div class="project-info">
-          <h3>Engineering You’re Hired</h3>
+      <div class="project-inner">
+        <div class="project-front">
+          <img src="assets/engineeringyourehired-thumbnail.png" alt="Engineering You’re Hired" />
+          <div class="project-info">
+            <h3>Engineering You’re Hired</h3>
+          </div>
         </div>
-      </div>
-      <div class="project-back">
-        <p>
-          Developed autonomous aerial firefighting software planning using an optimized RHA* algorithm for pathfinding.<br />
-          Collaborated with cross-disciplinary engineering teams.
-        </p>
-        <a href="https://github.com/SamBradley2024/EngineeringYoureHired" target="_blank">View on GitHub</a>
+        <div class="project-back">
+          <p>
+            Developed autonomous aerial firefighting software planning using an optimized RHA* algorithm for pathfinding.<br />
+            Collaborated with cross-disciplinary engineering teams.
+          </p>
+          <a href="https://github.com/SamBradley2024/EngineeringYoureHired" target="_blank">View on GitHub</a>
+        </div>
       </div>
     </div>
 
     <div class="project-card">
-      <div class="project-front">
-        <img src="assets/pokerapp-thumbnail.png" alt="Poker Application" />
-        <div class="project-info">
-          <h3>Poker Application</h3>
+      <div class="project-inner">
+        <div class="project-front">
+          <img src="assets/pokerapp-thumbnail.png" alt="Poker Application" />
+          <div class="project-info">
+            <h3>Poker Application</h3>
+          </div>
         </div>
-      </div>
-      <div class="project-back">
-        <p>
-          Windows Forms app simulating Texas Hold’em with AI players and performance tracking.<br />
-          Implemented user authentication and intuitive UI.
-        </p>
-        <a href="https://github.com/SamBradley2024/PokerApplication" target="_blank">View on GitHub</a>
+        <div class="project-back">
+          <p>
+            Windows Forms app simulating Texas Hold’em with AI players and performance tracking.<br />
+            Implemented user authentication and intuitive UI.
+          </p>
+          <a href="https://github.com/SamBradley2024/PokerApplication" target="_blank">View on GitHub</a>
+        </div>
       </div>
     </div>
 
@@ -147,6 +273,45 @@
     <a href="mailto:sambradleystudent@gmail.com">Email</a>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Typing text animation (assuming your original script.js has this, simplified here)
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.querySelector('.typing-text');
+      const text = el.getAttribute('data-text');
+      let idx = 0;
+      const typing = () => {
+        if (idx <= text.length) {
+          el.textContent = text.slice(0, idx);
+          idx++;
+          setTimeout(typing, 100);
+        }
+      };
+      typing();
+
+      // Tabs
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const target = button.getAttribute('data-tab');
+          tabContents.forEach(content => {
+            content.id === target ? content.classList.add('active') : content.classList.remove('active');
+          });
+        });
+      });
+
+      // Project card flipping
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+          card.classList.toggle('flipped');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
