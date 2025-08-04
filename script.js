@@ -45,4 +45,3 @@ function type() {
 }
 
 type();
-
