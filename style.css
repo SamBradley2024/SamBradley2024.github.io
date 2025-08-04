@@ -1,3 +1,4 @@
+/* Base */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
@@ -5,8 +6,11 @@ body {
   background-color: #f1fdf4;
   color: #222;
   line-height: 1.6;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none"><circle cx="20" cy="20" r="2" fill="%23006622" fill-opacity="0.1"/></svg>');
+  background-repeat: repeat;
 }
 
+/* Header */
 header {
   background: linear-gradient(135deg, #00b36b, #006644);
   color: white;
@@ -15,6 +19,16 @@ header {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.typing-text {
+  font-weight: 700;
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+  background: linear-gradient(90deg, #80ffaa, #00b36b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sections */
 section {
   padding: 2rem 1rem;
   max-width: 900px;
@@ -26,111 +40,8 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* CV Styles */
-.cv-section {
-  margin-bottom: 2rem;
-}
-
-.cv-section h3 {
-  color: #00994d;
-  margin-bottom: 0.5rem;
-}
-
-.cv-section ul {
-  margin-top: 0.3rem;
-  margin-left: 1rem;
-}
-
-/* Projects */
-.project-card {
+/* Tabs */
+.tabs {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  background: white;
-  border-radius: 12px;
-  margin: 1rem 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-}
-
-.project-card:hover {
-  background-color: #003322;
-  color: #003322;
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 255, 170, 0.2);
-}
-
-.project-card:hover .project-info {
-  color: #fff;
-}
-
-.project-card:hover .project-info h3,
-.project-card:hover .project-info a {
-  color: #80ffaa;
-}
-
-.project-card:hover .project-info a:hover {
-  text-decoration: underline;
-}
-
-.project-card img {
-  width: 200px;
-  height: 130px;
-  object-fit: cover;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  flex-shrink: 0;
-}
-
-.project-info {
-  padding: 1rem;
-  flex: 1;
-}
-
-.project-info h3 {
-  margin-top: 0;
-  color: #00994d;
-}
-
-.project-info a {
-  text-decoration: none;
-  color: #007a3d;
-  font-weight: bold;
-}
-
-.project-info a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: #e6ffe6;
-  color: #333;
-}
-
-/* Animations */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1s ease-in forwards;
-}
-
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  gap: 1rem;
+ 
