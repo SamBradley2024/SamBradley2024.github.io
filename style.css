@@ -42,7 +42,6 @@ h2 {
 }
 
 /* Projects */
-
 .project-card {
   display: flex;
   flex-wrap: wrap;
@@ -59,28 +58,21 @@ h2 {
   background-color: #003322;
   color: #fff;
   transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 255, 170, 0.2);
 }
+
 .project-card:hover .project-info {
   color: #fff;
 }
 
-.project-card:hover .project-info h3 {
-  color: #80ffaa;
-}
-
+.project-card:hover .project-info h3,
 .project-card:hover .project-info a {
   color: #80ffaa;
 }
 
-
-.project-card:hover a {
-  color: #80ffaa;
+.project-card:hover .project-info a:hover {
+  text-decoration: underline;
 }
-
-.project-card:hover h3 {
-  color: #80ffaa;
-}
-
 
 .project-card img {
   width: 200px;
