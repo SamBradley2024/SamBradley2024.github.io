@@ -56,7 +56,7 @@ h2 {
 
 .project-card:hover {
   background-color: #003322;
-  color: #fff;
+  color: #003322;
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0, 255, 170, 0.2);
 }
