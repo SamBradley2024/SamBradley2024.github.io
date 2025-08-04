@@ -23,7 +23,25 @@ section {
 
 h2 {
   color: #006644;
+  margin-bottom: 1rem;
 }
+
+/* CV Styles */
+.cv-section {
+  margin-bottom: 2rem;
+}
+
+.cv-section h3 {
+  color: #00994d;
+  margin-bottom: 0.5rem;
+}
+
+.cv-section ul {
+  margin-top: 0.3rem;
+  margin-left: 1rem;
+}
+
+/* Projects */
 
 .project-card {
   display: flex;
@@ -34,6 +52,7 @@ h2 {
   margin: 1rem 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -46,6 +65,7 @@ h2 {
   object-fit: cover;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
+  flex-shrink: 0;
 }
 
 .project-info {
