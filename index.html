@@ -9,7 +9,7 @@
 </head>
 <body>
   <header class="fade-in">
-    <h1>Sam Bradley</h1>
+    <h1 class="typing-text" data-text="Sam Bradley"></h1>
     <p>Data Scientist | ML Enthusiast | Problem Solver</p>
   </header>
 
@@ -23,15 +23,21 @@
 
   <section class="cv fade-in-up">
     <h2>Curriculum Vitae</h2>
-    <div class="cv-section">
-      <h3>Contact</h3>
+
+    <div class="tabs">
+      <button class="tab-button active" data-tab="contact">Contact</button>
+      <button class="tab-button" data-tab="education">Education</button>
+      <button class="tab-button" data-tab="skills">Skills</button>
+      <button class="tab-button" data-tab="experience">Experience</button>
+    </div>
+
+    <div id="contact" class="tab-content active">
       <p>1a Broomhill Road, Sheffield, United Kingdom</p>
       <p>📞 07920326775 | ✉️ <a href="mailto:sambradleystudent@gmail.com">sambradleystudent@gmail.com</a></p>
       <p>🔗 <a href="https://www.linkedin.com/in/sam-bradley-4b0b64244" target="_blank">linkedin.com/in/sam-bradley-4b0b64244</a></p>
     </div>
 
-    <div class="cv-section">
-      <h3>Education</h3>
+    <div id="education" class="tab-content">
       <p><strong>University of Sheffield</strong> — BSc in Computer Science (2023 - 2026)</p>
       <ul>
         <li>Dodgeball Club Social Secretary (Since July 2024) — Organizing events and managing communication</li>
@@ -48,17 +54,13 @@
       </ul>
     </div>
 
-    <div class="cv-section">
-      <h3>Technical Skills & Languages</h3>
-      <p>
-        <strong>Programming:</strong> Python, Java, C#, Ruby, HTML, CSS, JavaScript, Haskell, XAML<br />
-        <strong>Frameworks & Libraries:</strong> NumPy, Maven, Java Spring Boot, Gradle, Sinatra, SQLite3<br />
-        <strong>Dev Tools:</strong> Git, Visual Studio, VSCode, IntelliJ IDEA
-      </p>
+    <div id="skills" class="tab-content">
+      <p><strong>Programming:</strong> Python, Java, C#, Ruby, HTML, CSS, JavaScript, Haskell, XAML</p>
+      <p><strong>Frameworks & Libraries:</strong> NumPy, Maven, Java Spring Boot, Gradle, Sinatra, SQLite3</p>
+      <p><strong>Dev Tools:</strong> Git, Visual Studio, VSCode, IntelliJ IDEA</p>
     </div>
 
-    <div class="cv-section">
-      <h3>Experience</h3>
+    <div id="experience" class="tab-content">
       <p><strong>Revive Cafe, New Mills</strong> — Volunteer Barista (Aug 2021 - Dec 2022)</p>
       <ul>
         <li>Collaborated with a small team in a fast-paced environment, showcasing adaptability</li>
@@ -74,10 +76,14 @@
     <h2>Projects</h2>
 
     <div class="project-card">
-      <img src="assets/dodgetrack-thumbnail.png" alt="DodgeTrack App" />
-      <div class="project-info">
-        <h3>DodgeTrack</h3>
-        <p class="project-desc">
+      <div class="project-front">
+        <img src="assets/dodgetrack-thumbnail.png" alt="DodgeTrack App" />
+        <div class="project-info">
+          <h3>DodgeTrack</h3>
+        </div>
+      </div>
+      <div class="project-back">
+        <p>
           Designed and built a dodgeball timing and stats tracking mobile app using Visual Studio, .NET MAUI, C#, and XAML.
           Currently testing with user feedback to improve features.
         </p>
@@ -86,10 +92,14 @@
     </div>
 
     <div class="project-card">
-      <img src="assets/peakdistrictprose-thumbnail.png" alt="Peak District Prose" />
-      <div class="project-info">
-        <h3>Peak District Prose</h3>
-        <p class="project-desc">
+      <div class="project-front">
+        <img src="assets/peakdistrictprose-thumbnail.png" alt="Peak District Prose" />
+        <div class="project-info">
+          <h3>Peak District Prose</h3>
+        </div>
+      </div>
+      <div class="project-back">
+        <p>
           Developed a monetizable writing platform with moderation features in a 6-person Agile team.<br />
           Tools: Sinatra, SQLite3, Ruby, Git.
         </p>
@@ -98,10 +108,14 @@
     </div>
 
     <div class="project-card">
-      <img src="assets/engineeringyourehired-thumbnail.png" alt="Engineering You’re Hired" />
-      <div class="project-info">
-        <h3>Engineering You’re Hired</h3>
-        <p class="project-desc">
+      <div class="project-front">
+        <img src="assets/engineeringyourehired-thumbnail.png" alt="Engineering You’re Hired" />
+        <div class="project-info">
+          <h3>Engineering You’re Hired</h3>
+        </div>
+      </div>
+      <div class="project-back">
+        <p>
           Developed autonomous aerial firefighting software planning using an optimized RHA* algorithm for pathfinding.<br />
           Collaborated with cross-disciplinary engineering teams.
         </p>
@@ -110,10 +124,14 @@
     </div>
 
     <div class="project-card">
-      <img src="assets/pokerapp-thumbnail.png" alt="Poker Application" />
-      <div class="project-info">
-        <h3>Poker Application</h3>
-        <p class="project-desc">
+      <div class="project-front">
+        <img src="assets/pokerapp-thumbnail.png" alt="Poker Application" />
+        <div class="project-info">
+          <h3>Poker Application</h3>
+        </div>
+      </div>
+      <div class="project-back">
+        <p>
           Windows Forms app simulating Texas Hold’em with AI players and performance tracking.<br />
           Implemented user authentication and intuitive UI.
         </p>
