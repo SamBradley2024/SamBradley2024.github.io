@@ -78,18 +78,21 @@
       flex-direction: row;
       align-items: center;
     }
-    .project-front img {
-      width: 120px;
-      height: 100%;
-      object-fit: cover;
-      border-top-left-radius: 12px;
-      border-bottom-left-radius: 12px;
-      flex-shrink: 0;
-    }
-    .project-info {
+    .project-front {
       padding: 1rem;
-      flex: 1;
+      background: white;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
     }
+    
+    .project-info {
+      padding: 0;
+      width: 100%;
+    }
+
     .project-front h3 {
       margin-top: 0;
       color: #00994d;
@@ -197,7 +200,6 @@
     <div class="project-card">
       <div class="project-inner">
         <div class="project-front">
-          <img src="assets/dodgetrack-thumbnail.png" alt="DodgeTrack App" />
           <div class="project-info">
             <h3>DodgeTrack</h3>
           </div>
@@ -215,7 +217,6 @@
     <div class="project-card">
       <div class="project-inner">
         <div class="project-front">
-          <img src="assets/peakdistrictprose-thumbnail.png" alt="Peak District Prose" />
           <div class="project-info">
             <h3>Peak District Prose</h3>
           </div>
@@ -233,7 +234,6 @@
     <div class="project-card">
       <div class="project-inner">
         <div class="project-front">
-          <img src="assets/engineeringyourehired-thumbnail.png" alt="Engineering You’re Hired" />
           <div class="project-info">
             <h3>Engineering You’re Hired</h3>
           </div>
@@ -251,7 +251,6 @@
     <div class="project-card">
       <div class="project-inner">
         <div class="project-front">
-          <img src="assets/pokerapp-thumbnail.png" alt="Poker Application" />
           <div class="project-info">
             <h3>Poker Application</h3>
           </div>
