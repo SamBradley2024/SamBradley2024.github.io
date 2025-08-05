@@ -370,6 +370,26 @@
         });
       });
     });
+    // Project filtering
+    const filterButtons = document.querySelectorAll('.filter-buttons button');
+    const projectWrappers = document.querySelectorAll('.project-wrapper');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+    
+        projectWrappers.forEach(wrapper => {
+          const tags = wrapper.getAttribute('data-tags');
+          if (filter === 'all' || tags.includes(filter)) {
+            wrapper.style.display = 'block';
+          } else {
+            wrapper.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    
   </script>
 </body>
 </html>
