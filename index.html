@@ -14,6 +14,7 @@
       margin-bottom: 1rem;
       justify-content: center;
     }
+  
     .tab-button {
       background: none;
       border: none;
@@ -24,13 +25,16 @@
       border-bottom: 2px solid transparent;
       transition: border-color 0.3s, color 0.3s;
     }
+  
     .tab-button:hover {
       color: #00994d;
     }
+  
     .tab-button.active {
       color: #007a3d;
       border-bottom-color: #007a3d;
     }
+  
     .tab-content {
       display: none;
       max-width: 900px;
@@ -40,128 +44,42 @@
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+  
     .tab-content.active {
       display: block;
     }
-
-    /* Project Cards */
-    .project-card {
-      width: 320px;
-      height: 180px;
-      perspective: 1000px;
-      margin: 1rem auto;
-      cursor: pointer;
-    }
+  
+    /* Projects section */
     .projects h2 {
       text-align: center;
       padding: 3px;
     }
-
-    .project-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .project-card.flipped .project-inner {
-      transform: rotateY(180deg);
-    }
-    .project-front,
-    .project-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-      background: white;
-      color: #222;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
-    .project-front {
-      padding: 1rem;
-      background: white;
-      color: #222;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
-    
-    .project-info {
-      padding: 0;
-      width: 100%;
-    }
-
-    .project-front h3 {
-      margin-top: 0;
-      color: #00994d;
-    }
-    .project-front a {
-      text-decoration: none;
-      color: #007a3d;
-      font-weight: bold;
-    }
-    .project-front a:hover {
-      text-decoration: underline;
-    }
-    /* Back side styling */
-    .project-back {
-      background-color: #003322;
-      color: #fff;
-      transform: rotateY(180deg);
-      padding: 1rem;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .project-back h3 {
-      margin-top: 0;
-      color: #80ffaa;
-    }
-    .project-back a {
-      color: #80ffaa;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .project-back a:hover {
-      text-decoration: underline;
-    }
+  
     .project-wrapper {
       text-align: center;
       margin-bottom: 2rem;
     }
-    
+  
     .project-title {
       margin-bottom: 0.5rem;
       color: #004d33;
       font-size: 1.25rem;
       font-weight: bold;
     }
-    
+  
     .project-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
     }
-    
-    .project-card {
-      transition: transform 0.5s ease;
-    }
-    .project-card:hover {
-      transform: scale(1.05);
-    }
-    
+  
     /* Filter buttons */
     .filter-buttons {
       text-align: center;
       margin-bottom: 1.5rem;
     }
+  
     .filter-buttons button {
       margin: 0 0.5rem;
       padding: 0.4rem 1rem;
@@ -172,11 +90,122 @@
       border-radius: 8px;
       transition: 0.3s;
     }
+  
     .filter-buttons button:hover {
       background-color: #e6ffee;
     }
-
-    
+  
+    /* Project Cards */
+    .project-card {
+      width: 320px;
+      height: 180px;
+      perspective: 1000px;
+      margin: 1rem auto;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+  
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+  
+    .project-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+  
+    .project-card.flipped .project-inner {
+      transform: rotateY(180deg);
+    }
+  
+    .project-front,
+    .project-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-sizing: border-box;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+    }
+  
+    .project-front {
+      background: white;
+      color: #222;
+      align-items: flex-start;
+    }
+  
+    .project-back {
+      background-color: #003322;
+      color: #fff;
+      transform: rotateY(180deg);
+      align-items: flex-start;
+      overflow-y: auto;
+    }
+  
+    .project-info {
+      padding: 0;
+      width: 100%;
+    }
+  
+    .project-front h3 {
+      margin-top: 0;
+      color: #00994d;
+    }
+  
+    .project-front a {
+      text-decoration: none;
+      color: #007a3d;
+      font-weight: bold;
+    }
+  
+    .project-front a:hover {
+      text-decoration: underline;
+    }
+  
+    .project-back h3 {
+      margin-top: 0;
+      color: #80ffaa;
+    }
+  
+    .project-back p,
+    .project-front p {
+      margin: 0;
+      line-height: 1.4;
+      font-size: 0.95rem;
+    }
+  
+    .project-back a {
+      color: #80ffaa;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+  
+    .project-back a:hover {
+      text-decoration: underline;
+    }
+  
+    /* Scrollbar (optional enhancement for overflow) */
+    .project-back::-webkit-scrollbar {
+      width: 6px;
+    }
+  
+    .project-back::-webkit-scrollbar-thumb {
+      background-color: #007a3d;
+      border-radius: 3px;
+    }
   </style>
 </head>
 <body>
