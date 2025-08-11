@@ -166,6 +166,7 @@ if (statsGrid) {
 // ==== Typing Effect for Hero Title ====
 function typeWriter(element, text, speed = 100) {
   let i = 0;
+  element.classList.add('gradient-animate'); 
   element.textContent = '';
   function type() {
     if (i < text.length) {
