@@ -166,16 +166,17 @@ if (statsGrid) {
 // ==== Typing Effect for Hero Title ====
 function typeWriter(element, text, speed = 100) {
   let i = 0;
-  element.classList.add('gradient-animate'); 
-  element.textContent = '';
+  element.textContent = ''; // Clear existing text
+  element.classList.add('typing'); // Add a class to control the cursor
+
   function type() {
     if (i < text.length) {
       element.textContent += text.charAt(i);
       i++;
       setTimeout(type, speed);
     } else {
-      element.style.borderRight = '3px solid #2ecc71';
-      element.style.animation = 'blink 1s infinite';
+      // When typing is done, remove the class that shows the cursor
+      element.classList.remove('typing');
     }
   }
   type();
