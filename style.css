@@ -840,3 +840,110 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+:root {
+    --green-primary: #27FB6B;
+    --green-secondary: #14CC60;
+    --green-dark: #093824;
+    --green-medium: #09A129;
+    --light-bg: #F6F8FF;
+    --black: #000000;
+    --text-color: #000000;
+    --bg-color: var(--light-bg);
+}
+
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #F6F8FF;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--green-primary);
+    z-index: 9999;
+    width: 0%;
+}
+
+/* Gradient animate text */
+.gradient-animate {
+    background: linear-gradient(270deg, var(--green-primary), var(--green-secondary), var(--green-medium));
+    background-size: 600% 600%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Card hover glow */
+.project-card:hover,
+.stat-card:hover {
+    box-shadow: 0 0 25px var(--green-primary);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--green-secondary);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    background: var(--green-dark);
+}
+
+/* Text selection */
+::selection {
+    background: var(--green-primary);
+    color: var(--black);
+}
+
+/* Fade & slide reveal */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+.fade-slide.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 0 0 20px var(--green-primary);
+}
+.modal-close {
+    cursor: pointer;
+    float: right;
+    font-size: 1.5rem;
+}
