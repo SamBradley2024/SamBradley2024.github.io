@@ -173,6 +173,26 @@ body {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
+/* Creates a blinking cursor using a pseudo-element */
+.hero h1.typing::after {
+  content: '';
+  display: inline-block;
+  width: 4px; /* Width of the cursor */
+  height: 1.1em; /* Match the height of the text */
+  background-color: #2ecc71; /* Cursor color */
+  animation: blink 1s infinite;
+  margin-left: 8px;
+  position: relative;
+  top: 0.1em;
+}
+
+/* Blinking animation */
+@keyframes blink {
+  50% {
+    background-color: transparent;
+  }
+}
+
 .hero .subtitle {
     font-size: 1.5rem;
     font-weight: 300;
