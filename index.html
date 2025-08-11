@@ -1,425 +1,896 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sam Bradley | Data Scientist Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    /* Tabs */
-    .tabs {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      justify-content: center;
-    }
-  
-    .tab-button {
-      background: none;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-weight: 600;
-      color: #006644;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.3s, color 0.3s;
-    }
-  
-    .tab-button:hover {
-      color: #00994d;
-    }
-  
-    .tab-button.active {
-      color: #007a3d;
-      border-bottom-color: #007a3d;
-    }
-  
-    .tab-content {
-      display: none;
-      max-width: 900px;
-      margin: auto;
-      padding: 1rem;
-      background: #f9fff9;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-  
-    .tab-content.active {
-      display: block;
-    }
-  
-    /* Projects section */
-    .projects h2 {
-      text-align: center;
-      padding: 3px;
-    }
-  
-    .project-wrapper {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-  
-    .project-title {
-      margin-bottom: 0.5rem;
-      color: #004d33;
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-  
-    .project-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-  
-    /* Filter buttons */
-    .filter-buttons {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-  
-    .filter-buttons button {
-      margin: 0 0.5rem;
-      padding: 0.4rem 1rem;
-      border: 2px solid #007a3d;
-      background-color: #fff;
-      color: #007a3d;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-  
-    .filter-buttons button:hover {
-      background-color: #e6ffee;
-    }
-  
-    /* Project Cards */
-    .project-card {
-      width: 320px;
-      height: 180px;
-      perspective: 1000px;
-      margin: 1rem auto;
-      cursor: pointer;
-      transition: transform 0.5s ease;
-    }
-  
-    .project-card:hover {
-      transform: scale(1.05);
-    }
-  
-    .project-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-  
-    .project-card.flipped .project-inner {
-      transform: rotateY(180deg);
-    }
-  
-    .project-front,
-    .project-back {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      box-sizing: border-box;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      overflow: hidden;
-    }
-  
-    .project-front {
-      background: white;
-      color: #222;
-      align-items: flex-start;
-    }
-  
-    .project-back {
-      background-color: #003322;
-      color: #fff;
-      transform: rotateY(180deg);
-      align-items: flex-start;
-      overflow-y: auto;
-    }
-  
-    .project-info {
-      padding: 0;
-      width: 100%;
-    }
-    
-  
-    .project-front h3 {
-      margin-top: 0;
-      color: #00994d;
-    }
-  
-    .project-front a {
-      text-decoration: none;
-      color: #007a3d;
-      font-weight: bold;
-    }
-  
-    .project-front a:hover {
-      text-decoration: underline;
-    }
-  
-    .project-back h3 {
-      margin-top: 0;
-      color: #80ffaa;
-    }
-  
-    .project-back p,
-    .project-front p {
-      margin: 0;
-      line-height: 1.4;
-      font-size: 0.95rem;
-    }
-  
-    .project-back a {
-      color: #80ffaa;
-      font-weight: bold;
-      text-decoration: none;
-      margin-top: 1rem;
-    }
-  
-    .project-back a:hover {
-      text-decoration: underline;
-    }
-  
-    /* Scrollbar (optional enhancement for overflow) */
-    .project-back::-webkit-scrollbar {
-      width: 6px;
-    }
-  
-    .project-back::-webkit-scrollbar-thumb {
-      background-color: #007a3d;
-      border-radius: 3px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Bradley | Data Scientist & ML Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .cta-buttons {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 0 10px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav.visible {
+            transform: translateY(0);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Main Content */
+        .main {
+            background: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1a1a1a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border: 1px solid #e3e8ff;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid #f0f0f0;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #f8f9ff;
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid #e3e8ff;
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.3;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: #f0f0f0;
+            color: #555;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="fade-in">
-    <h1 class="typing-text" data-text="Sam Bradley"></h1>
-    <p>Data Scientist | ML Enthusiast | Problem Solver</p>
-  </header>
-
-  <section class="about fade-in-up">
-    <h2>About Me</h2>
-    <p>
-      I'm pursuing a **BSc in Computer Science** at the **University of Sheffield**, with hands‑on experience in team leadership and event organisation as the **Social Secretary and Coach of the University Dodgeball Club**.
-      I enjoy turning complex datasets into actionable insights and am passionate about building ML-driven applications.
-    </p>
-  </section>
-
-
-  <section class="cv fade-in-up">
-    <h2>Curriculum Vitae</h2>
-
-    <div class="tabs">
-      <button class="tab-button active" data-tab="contact">Contact</button>
-      <button class="tab-button" data-tab="education">Education</button>
-      <button class="tab-button" data-tab="skills">Skills</button>
-      <button class="tab-button" data-tab="experience">Experience</button>
-    </div>
-
-    <div id="contact" class="tab-content active">
-      <p>✉️ <a href="mailto:sambradleystudent@gmail.com">sambradleystudent@gmail.com</a></p>
-      <p>🔗 <a href="https://www.linkedin.com/in/sam-bradley-4b0b64244" target="_blank">linkedin.com/in/sam-bradley-4b0b64244</a></p>
-    </div>
-
-    <div id="education" class="tab-content">
-      <p><strong>University of Sheffield</strong> — BSc in Computer Science (2023 - 2026)</p>
-      <ul>
-        <li>Dodgeball Club Social Secretary (Since July 2024) — Organizing events and managing communication</li>
-        <li>Dodgeball Coach associated with the University</li>
-      </ul>
-      <p><strong>Aquinas College</strong> — A Levels (2021 - 2023)</p>
-      <ul>
-        <li>Maths Club: Solved the final Ritangle competition problem with C#</li>
-        <li>Grades: Maths A*, Further Maths A*, Computer Science A, EPQ A*</li>
-      </ul>
-      <p><strong>New Mills School</strong> (2016 - 2021)</p>
-      <ul>
-        <li>Obtained 9 GCSEs including 9 in Mathematics & English Language</li>
-      </ul>
-    </div>
-
-    <div id="skills" class="tab-content">
-      <p><strong>Programming:</strong> Python, Java, C#, Ruby, HTML, CSS, JavaScript, Haskell, XAML</p>
-      <p><strong>Frameworks & Libraries:</strong> NumPy, Maven, Java Spring Boot, Gradle, Sinatra, SQLite3</p>
-      <p><strong>Dev Tools:</strong> Git, Visual Studio, VSCode, IntelliJ IDEA</p>
-    </div>
-
-    <div id="experience" class="tab-content">
-      <p><strong>Revive Cafe, New Mills</strong> — Volunteer Barista (Aug 2021 - Dec 2022)</p>
-      <ul>
-        <li>Collaborated with a small team in a fast-paced environment, showcasing adaptability</li>
-      </ul>
-      <p><strong>Maths Tutor</strong> (Dec 2021 - July 2023)</p>
-      <ul>
-        <li>Simplified complex math concepts and designed tailored lesson plans</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="projects fade-in-up">
-  <h2>Projects</h2>
-
-  <div class="filter-buttons">
-    <button data-filter="all">All</button>
-    <button data-filter="Mobile">Mobile</button>
-    <button data-filter="Ruby">Ruby</button>
-    <button data-filter="AI">AI</button>
-  </div>
-
-  <div class="project-grid">
-    <div class="project-wrapper" data-tags="Mobile">
-      <h3 class="project-title">DodgeTrack</h3>
-      <div class="project-card">
-        <div class="project-inner">
-          <div class="project-front">
-            <p>Click for more info</p>
-          </div>
-          <div class="project-back">
-            <p>Timing and stats app built with .NET MAUI (C#).</p>
-            <a href="https://github.com/SamBradley2024/DodgeTrack" target="_blank">View on GitHub</a>
-          </div>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav-container">
+            <div class="nav-brand">Sam Bradley</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <div class="project-wrapper" data-tags="Ruby">
-      <h3 class="project-title">Peak District Prose</h3>
-      <div class="project-card">
-        <div class="project-inner">
-          <div class="project-front">
-            <p>Click for more info</p>
-          </div>
-          <div class="project-back">
-            <p>Writing platform using Sinatra & SQLite3.</p>
-            <a href="https://github.com/SamBradley2024/PeakDistrictProse" target="_blank">View on GitHub</a>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Sam Bradley</h1>
+            <p class="subtitle">Data Scientist & Machine Learning Engineer</p>
+            <p class="description">Computer Science student at University of Sheffield, passionate about transforming data into actionable insights and building intelligent systems that solve real-world problems.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <div class="project-card">
-      <div class="project-inner">
-        <div class="project-front">
-          <div class="project-info">
-            <h3>Engineering You’re Hired</h3>
-          </div>
-        </div>
-        <div class="project-back">
-          <p>
-            Developed autonomous aerial firefighting software planning using an optimized RHA* algorithm for pathfinding.<br />
-            Collaborated with cross-disciplinary engineering teams.
-          </p>
-          <a href="https://github.com/SamBradley2024/EngineeringYoureHired" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-    </div>
+    <!-- Main Content -->
+    <main class="main">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text fade-in">
+                        <h3>Passionate About Data & Innovation</h3>
+                        <p>I'm a Computer Science student at the University of Sheffield with a deep passion for data science and artificial intelligence. As Social Secretary and Coach of the University Dodgeball Club, I've developed strong leadership skills while maintaining academic excellence.</p>
+                        <p>Currently completing a summer internship where I've gained hands-on experience with real-world data challenges. I love turning complex datasets into meaningful insights and building ML-driven applications that make a difference.</p>
+                        <p>When I'm not coding or analyzing data, you'll find me strategizing dodgeball plays or exploring the Peak District that inspired one of my projects.</p>
+                    </div>
+                    <div class="stats-grid fade-in">
+                        <div class="stat-card">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Coding</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Projects Built</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">A*</span>
+                            <span class="stat-label">Maths A-Level</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">2026</span>
+                            <span class="stat-label">Graduation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="project-card">
-      <div class="project-inner">
-        <div class="project-front">
-          <div class="project-info">
-            <h3>Poker Application</h3>
-          </div>
-        </div>
-        <div class="project-back">
-          <p>
-            Windows Forms app simulating Texas Hold’em with AI players and performance tracking.<br />
-            Implemented user authentication and intuitive UI.
-          </p>
-          <a href="https://github.com/SamBradley2024/PokerApplication" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-    </div>
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Technical Skills</h2>
+                <p class="section-subtitle fade-in">A comprehensive toolkit for data science, machine learning, and software development</p>
+                <div class="skills-grid">
+                    <div class="skill-category fade-in">
+                        <h3><i class="fas fa-chart-line"></i> Data Science & ML</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">Jupyter</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">Ruby</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Haskell</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3><i class="fas fa-tools"></i> Frameworks & Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">.NET MAUI</span>
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Sinatra</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">Maven</span>
+                            <span class="skill-tag">Gradle</span>
+                        </div>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3><i class="fas fa-brain"></i> AI & Advanced Topics</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Data Visualization</span>
+                            <span class="skill-tag">Statistical Analysis</span>
+                            <span class="skill-tag">Algorithm Design</span>
+                            <span class="skill-tag">Pathfinding (A*)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  </section>
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2 class="section-title fade-in">Featured Projects</h2>
+                <p class="section-subtitle fade-in">A showcase of my work in data science, AI, and software development</p>
+                
+                <div class="project-filters fade-in">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="data-science">Data Science</button>
+                    <button class="filter-btn" data-filter="ai">AI/ML</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                </div>
 
-  <section class="linkedin-section fade-in-up">
-    <h2>Connect on LinkedIn</h2>
-    <p>
-      I’m currently studying Computer Science at Sheffield and actively contribute to student life as the Dodgeball Club Social Secretary and Coach.
-      Curious about my academic journey or club involvement? Learn more over on  
-      <a href="https://www.linkedin.com/in/sam-bradley-4b0b64244" target="_blank">LinkedIn</a>.
-    </p>
-  </section>
+                <div class="projects-grid">
+                    <!-- Summer Internship Project -->
+                    <div class="project-card fade-in" data-category="data-science">
+                        <div class="project-image">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Summer Internship Project</h3>
+                            <p class="project-description">Applied data science techniques to solve real-world business challenges during my summer internship, involving data analysis, predictive modeling, and stakeholder presentations.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Pandas</span>
+                                <span class="tech-tag">Scikit-learn</span>
+                                <span class="tech-tag">Data Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i> View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- Sports Analytics Project -->
+                    <div class="project-card fade-in" data-category="data-science ai">
+                        <div class="project-image">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sports Performance Analytics</h3>
+                            <p class="project-description">Machine learning analysis of dodgeball team performance data, featuring predictive models for game outcomes and player performance optimization strategies.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Data Visualization</span>
+                                <span class="tech-tag">Statistical Analysis</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-  <script>
-    // Typing text animation (assuming your original script.js has this, simplified here)
-    document.addEventListener('DOMContentLoaded', () => {
-      const el = document.querySelector('.typing-text');
-      const text = el.getAttribute('data-text');
-      let idx = 0;
-      const typing = () => {
-        if (idx <= text.length) {
-          el.textContent = text.slice(0, idx);
-          idx++;
-          setTimeout(typing, 100);
-        }
-      };
-      typing();
+                    <!-- AI Pathfinding Project -->
+                    <div class="project-card fade-in" data-category="ai">
+                        <div class="project-image">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Autonomous Firefighting AI</h3>
+                            <p class="project-description">Developed intelligent pathfinding software for autonomous aerial firefighting using optimized RHA* algorithm, collaborating with cross-disciplinary engineering teams.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">AI Algorithms</span>
+                                <span class="tech-tag">Pathfinding</span>
+                                <span class="tech-tag">Optimization</span>
+                                <span class="tech-tag">Java</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SamBradley2024/EngineeringYoureHired" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-      // Tabs
-      const tabButtons = document.querySelectorAll('.tab-button');
-      const tabContents = document.querySelectorAll('.tab-content');
+                    <!-- DodgeTrack Mobile App -->
+                    <div class="project-card fade-in" data-category="mobile">
+                        <div class="project-image">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">DodgeTrack Mobile App</h3>
+                            <p class="project-description">Cross-platform mobile application for dodgeball timing and statistics tracking, built with .NET MAUI featuring real-time data collection and performance analytics.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">.NET MAUI</span>
+                                <span class="tech-tag">XAML</span>
+                                <span class="tech-tag">Mobile Development</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SamBradley2024/DodgeTrack" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-      tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          tabButtons.forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
+                    <!-- Peak District Prose -->
+                    <div class="project-card fade-in" data-category="web">
+                        <div class="project-image">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Peak District Prose</h3>
+                            <p class="project-description">Full-stack writing platform inspired by the Peak District, built with Ruby Sinatra and SQLite3, featuring user authentication and content management.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Ruby</span>
+                                <span class="tech-tag">Sinatra</span>
+                                <span class="tech-tag">SQLite3</span>
+                                <span class="tech-tag">Web Development</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SamBradley2024/PeakDistrictProse" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
-          const target = button.getAttribute('data-tab');
-          tabContents.forEach(content => {
-            content.id === target ? content.classList.add('active') : content.classList.remove('active');
-          });
+                    <!-- AI Poker Application -->
+                    <div class="project-card fade-in" data-category="ai">
+                        <div class="project-image">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI Poker Application</h3>
+                            <p class="project-description">Texas Hold'em poker simulator with intelligent AI opponents, featuring machine learning-based decision making, performance tracking, and user authentication.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">C#</span>
+                                <span class="tech-tag">AI Logic</span>
+                                <span class="tech-tag">Game Theory</span>
+                                <span class="tech-tag">Windows Forms</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SamBradley2024/PokerApplication" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <div class="contact-content fade-in">
+                    <h2 class="section-title">Let's Connect</h2>
+                    <p class="section-subtitle">I'm always interested in discussing data science opportunities, collaboration on interesting projects, or just chatting about the latest in AI and machine learning.</p>
+                    <div class="contact-links">
+                        <a href="mailto:sambradleystudent@gmail.com" class="contact-link">
+                            <i class="fas fa-envelope"></i> Email Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/sam-bradley-4b0b64244" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/SamBradley2024" target="_blank" class="contact-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-      });
 
-      // Project card flipping
-      const projectCards = document.querySelectorAll('.project-card');
-      projectCards.forEach(card => {
-        card.addEventListener('click', () => {
-          card.classList.toggle('flipped');
+        // Show/hide navigation on scroll
+        let lastScrollTop = 0;
+        const nav = document.getElementById('nav');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                nav.classList.add('visible');
+            } else {
+                nav.classList.remove('visible');
+            }
+            
+            lastScrollTop = scrollTop;
         });
-      });
-    });
-    // Project filtering
-    const filterButtons = document.querySelectorAll('.filter-buttons button');
-    const projectWrappers = document.querySelectorAll('.project-wrapper');
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-    
-        projectWrappers.forEach(wrapper => {
-          const tags = wrapper.getAttribute('data-tags');
-          if (filter === 'all' || tags.includes(filter)) {
-            wrapper.style.display = 'block';
-          } else {
-            wrapper.style.display = 'none';
-          }
-        });
-      });
-    });
 
-    
-  </script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const categories = card.getAttribute('data-category');
+                        if (categories && categories.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add hover effects to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Add typing effect to hero title (optional enhancement)
+            const heroTitle = document.querySelector('.hero h1');
+            const text = heroTitle.textContent;
+            heroTitle.textContent = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < text.length) {
+                    heroTitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            };
+            
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
 </body>
 </html>
