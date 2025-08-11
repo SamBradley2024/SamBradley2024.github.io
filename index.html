@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="container nav-container">
@@ -20,13 +22,17 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <!-- Theme Toggle -->
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Sam Bradley</h1>
+            <h1 class="gradient-animate">Sam Bradley</h1>
             <p class="subtitle">Data Scientist & Machine Learning Engineer</p>
             <p class="description">Computer Science student at University of Sheffield, passionate about transforming data into actionable insights and building intelligent systems that solve real-world problems.</p>
             <div class="cta-buttons">
@@ -301,6 +307,14 @@
             </div>
         </section>
     </main>
+    <!-- Skills Modal -->
+    <div id="skill-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3 id="modal-skill-title"></h3>
+            <p id="modal-skill-description"></p>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
